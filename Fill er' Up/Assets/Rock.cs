@@ -15,7 +15,13 @@ public class Rock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position -= new Vector3(0, Time.deltaTime * _rockFallSpeed, 0);
+
+      //  if(transform.position.y == -5.5f)
+     //     Destroy(gameObject);
+
+
+
+       // transform.position -= new Vector3(0, Time.deltaTime * _rockFallSpeed, 0); //Old Drop Mechanic
 
     }
 }
