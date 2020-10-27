@@ -1,10 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Rock : MonoBehaviour
 {
     [SerializeField] float _rockFallSpeed = 0.01f;
+
+    static int rockFilled = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -16,12 +19,20 @@ public class Rock : MonoBehaviour
     void Update()
     {
 
-      //  if(transform.position.y == -5.5f)
-     //     Destroy(gameObject);
-
-
-
+      if (rockFilled == 40)
+      {
+        Debug.Log("Level Complete");
+        rockFilled = 41;
+      }
        // transform.position -= new Vector3(0, Time.deltaTime * _rockFallSpeed, 0); //Old Drop Mechanic
 
     }
+
+    
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        rockFilled++;
+        Debug.Log(rockFilled);
+    }
+
 }
