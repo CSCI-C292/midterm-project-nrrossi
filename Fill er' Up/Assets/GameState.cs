@@ -5,9 +5,22 @@ using UnityEngine.UI;
 
 public class GameState : MonoBehaviour
 {
-    [SerializeField] int _lives = 20;
+    [SerializeField] private int _lives = 20;
     [SerializeField] GameObject _livesText;
+    [SerializeField] GameObject _completeText;
+    [SerializeField] GameObject _failedText;
+
+
+    //bool isLevelComplete = false;
+    //bool isLevelFailed = false;
+
     public static GameState Instance;
+
+    public int getLives(){
+        return _lives;
+    }
+
+
 
     private void Awake() {
         Instance = this;
@@ -24,5 +37,14 @@ public class GameState : MonoBehaviour
      }
   }
 
+public void InitiateLevelComplete()
+{
+    _completeText.SetActive(true);
+}
+
+public void InitiateLevelFailed()
+{
+    _failedText.SetActive(true);
+}
 
 }

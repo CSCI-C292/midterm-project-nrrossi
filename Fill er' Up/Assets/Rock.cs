@@ -10,6 +10,8 @@ public class Rock : MonoBehaviour
     [SerializeField] float _timeUntilDestroy = 20;
     static int rockFilled = 0;
     bool onGround = true;
+    bool levelComplete = false;
+    bool levelFailed = false;
     float counter = 0f;
 
     // Update is called once per frame
@@ -17,10 +19,16 @@ public class Rock : MonoBehaviour
     {
 
       //complete Level
-      if (rockFilled == 40)
+      if (rockFilled >= 40)
       {
-        rockFilled = 41;
-
+        rockFilled = 40;
+        levelComplete = true;
+        GameState.Instance.InitiateLevelComplete();
+      }
+      else if (GameState.Instance.getLives() == 0)
+      {
+        levelFailed = true;
+        GameState.Instance.InitiateLevelFailed();
       }
     }
 
@@ -29,13 +37,16 @@ public class Rock : MonoBehaviour
     {
       if(other.CompareTag("DumpTruck"))
       {
-        rockFilled++;
-        Debug.Log(rockFilled);
+        if (! levelFailed)
+          rockFilled++;;
+        
         onGround = false;
       }
       else if (other.CompareTag("Floor"))
       {
-        GameState.Instance.DecreaseLives();
+        if (!levelComplete)
+          GameState.Instance.DecreaseLives();
+        
         Destroy(gameObject, 5);
       }
 
