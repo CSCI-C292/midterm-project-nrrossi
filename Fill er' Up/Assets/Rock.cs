@@ -9,7 +9,6 @@ public class Rock : MonoBehaviour
     [SerializeField] float _rockFallSpeed = 0.01f;
     [SerializeField] float _timeUntilDestroy = 20;
     [SerializeField] GameState _gameState;
-    [SerializeField] GameObject _dumpTruck;
     static int rockFilled = 0;
     bool onGround = true;
     float counter = 0f;
@@ -29,14 +28,13 @@ public class Rock : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D other)
     {
-      Debug.Log(other.gameObject);
-      if(other.gameObject == _dumpTruck)
+      if(other.CompareTag("DumpTruck"))
       {
         rockFilled++;
         Debug.Log(rockFilled);
         onGround = false;
       }
-      else
+      else if (other.CompareTag("Floor"))
       {
         GameState.Instance.DecreaseLives();
         Destroy(gameObject, 5);

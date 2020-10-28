@@ -15,6 +15,7 @@ public class GameState : MonoBehaviour
 
   public void DecreaseLives()
   {
+     if (_lives > 0)
       _lives--;
   }
 
