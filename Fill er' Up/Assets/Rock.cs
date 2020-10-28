@@ -9,16 +9,33 @@ public class Rock : MonoBehaviour
 
     static int rockFilled = 0;
 
+    bool onGround = true;
+    [SerializeField] float _timeUntilDestroy = 20;
+    float counter = 0f;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
 
+      //destroy rocks on floor
+
+      if (counter < _timeUntilDestroy)
+      {
+        counter += Time.deltaTime;
+      }
+      else if (onGround)
+      {
+        Destroy(gameObject);
+      }
+      else {}
+
+
+      //complete Level
       if (rockFilled == 40)
       {
         Debug.Log("Level Complete");
@@ -33,6 +50,8 @@ public class Rock : MonoBehaviour
     {
         rockFilled++;
         Debug.Log(rockFilled);
+        onGround = false;
+
     }
 
 }
