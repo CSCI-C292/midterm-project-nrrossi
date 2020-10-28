@@ -8,7 +8,6 @@ public class Rock : MonoBehaviour
 {
     [SerializeField] float _rockFallSpeed = 0.01f;
     [SerializeField] float _timeUntilDestroy = 20;
-    [SerializeField] GameState _gameState;
     static int rockFilled = 0;
     bool onGround = true;
     float counter = 0f;
@@ -25,7 +24,7 @@ public class Rock : MonoBehaviour
       }
     }
 
-    
+    //Tags reference: https://bladecast.pro/unity-tutorial/identify-object-tag-or-name-unity
     void OnTriggerEnter2D(Collider2D other)
     {
       if(other.CompareTag("DumpTruck"))
