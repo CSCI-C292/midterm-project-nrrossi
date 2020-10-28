@@ -152,6 +152,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lives: 20
   _livesText: {fileID: 372952962}
+  _completeText: {fileID: 935152181}
+  _failedText: {fileID: 1045612371}
 --- !u!4 &224766100
 Transform:
   m_ObjectHideFlags: 0
