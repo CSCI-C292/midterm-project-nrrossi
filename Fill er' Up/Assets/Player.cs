@@ -5,14 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    [SerializeField] GameObject _rockPrefab;
-    [SerializeField] float _delay = 0.5f;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] GameObject _rockPrefab; //prefab of rock object for spawning
+    [SerializeField] float _delay = 0.5f;   //delay of rock spawning
 
     // Update is called once per frame
     void Update()

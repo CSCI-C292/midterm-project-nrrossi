@@ -16,6 +16,7 @@ public class GameState : MonoBehaviour
 
     public static GameState Instance;
 
+    //getter for Lives
     public int getLives(){
         return _lives;
     }
