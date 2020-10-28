@@ -97,6 +97,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rockFallSpeed: 7
+  _timeUntilDestroy: 20
+  _gameState: {fileID: 0}
+  _dumpTruck: {fileID: 0}
 --- !u!58 &5630085004340724468
 CircleCollider2D:
   m_ObjectHideFlags: 0
