@@ -9,27 +9,27 @@ public class Rock : MonoBehaviour
     [SerializeField] float _rockFallSpeed = 0.01f;  //modification to rock speed
     [SerializeField] float _timeUntilDestroy = 20;  //time in seconds until rocks despawn
     static int rockFilled = 0;  //How many rocks are in the dump truck
-    //bool onGround = true;   //Are the rocks touching the ground
     bool levelComplete = false;
     bool levelFailed = false;
-    float counter = 0f;
 
     // Update is called once per frame
     void Update()
     {
 
-      
-      //complete Level
-      if (rockFilled >= 40)
+      //Added to prevent Update from infinetly calling functions.
+      if(!levelComplete && !levelFailed)
       {
-        rockFilled = 40;
-        levelComplete = true;
-        GameState.Instance.InitiateLevelComplete();
-      }
-      else if (GameState.Instance.getLives() == 0)
-      {
-        levelFailed = true;
-        GameState.Instance.InitiateLevelFailed();
+          //complete Level
+          if (rockFilled >= 40)
+          {
+            levelComplete = true;
+            GameState.Instance.InitiateLevelComplete();
+          }
+          else if (GameState.Instance.getLives() == 0)
+          {
+            levelFailed = true;
+            GameState.Instance.InitiateLevelFailed();
+          }
       }
     }
 
@@ -40,9 +40,8 @@ public class Rock : MonoBehaviour
       {
         if (! levelFailed)
          rockFilled++;
-        
-        //onGround = false;
       }
+
       else if (other.CompareTag("Floor"))
       {
         if (!levelComplete)

@@ -13,6 +13,7 @@ public class GameState : MonoBehaviour
     [SerializeField] GameObject _helpMenu;
 
     public bool display = false;
+    private bool moveTruck = true;
 
     //bool isLevelComplete = false;
     //bool isLevelFailed = false;
@@ -45,6 +46,11 @@ public void InitiateLevelComplete()
 {
     _completeText.SetActive(true);
     _thanksForPlaying.SetActive(true);
+    if(moveTruck)
+    {
+        DumpTruck.Instance.MoveDumpTruck();
+        moveTruck = false;
+    }
 
 }
 
