@@ -38,7 +38,7 @@ public class Rock : MonoBehaviour
       if(other.CompareTag("DumpTruck"))
       {
         if (! levelFailed)
-          rockFilled++;;
+         
         
         onGround = false;
       }

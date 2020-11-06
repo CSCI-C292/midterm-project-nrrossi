@@ -36,6 +36,14 @@ public class Player : MonoBehaviour
         }
 
 
+        //Help Menu
+        
+
+        //Player Reset Level
+
+
+
+
     }
 
     private void DropRock(){

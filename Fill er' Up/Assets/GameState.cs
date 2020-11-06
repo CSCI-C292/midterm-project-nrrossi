@@ -9,6 +9,8 @@ public class GameState : MonoBehaviour
     [SerializeField] GameObject _livesText;
     [SerializeField] GameObject _completeText;
     [SerializeField] GameObject _failedText;
+    [SerializeField] GameObject _thanksForPlaying;
+    [SerializeField] GameObject _helpMenu;
 
 
     //bool isLevelComplete = false;
@@ -41,11 +43,18 @@ public class GameState : MonoBehaviour
 public void InitiateLevelComplete()
 {
     _completeText.SetActive(true);
+    _thanksForPlaying.SetActive(true);
+
 }
 
 public void InitiateLevelFailed()
 {
     _failedText.SetActive(true);
+}
+
+public void ToggleHelpMenu(bool display)
+{
+        _helpMenu.SetActive(display);
 }
 
 }
