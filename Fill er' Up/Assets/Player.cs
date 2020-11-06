@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -37,10 +38,14 @@ public class Player : MonoBehaviour
 
 
         //Help Menu
-        
+        if (Input.GetButtonDown("HelpMenu")){
+            GameState.Instance.ToggleHelpMenu(); //toggles help menu
+        }
 
         //Player Reset Level
-
+        if (Input.GetButtonDown("Reset")){
+            SceneManager.LoadScene("Tutorial"); //really ugly way to do it but it works
+        }
 
 
 

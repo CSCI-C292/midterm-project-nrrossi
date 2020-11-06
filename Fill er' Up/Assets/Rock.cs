@@ -6,10 +6,10 @@ using UnityEngine;
 
 public class Rock : MonoBehaviour
 {
-    [SerializeField] float _rockFallSpeed = 0.01f;
-    [SerializeField] float _timeUntilDestroy = 20;
-    static int rockFilled = 0;
-    bool onGround = true;
+    [SerializeField] float _rockFallSpeed = 0.01f;  //modification to rock speed
+    [SerializeField] float _timeUntilDestroy = 20;  //time in seconds until rocks despawn
+    static int rockFilled = 0;  //How many rocks are in the dump truck
+    //bool onGround = true;   //Are the rocks touching the ground
     bool levelComplete = false;
     bool levelFailed = false;
     float counter = 0f;
@@ -18,6 +18,7 @@ public class Rock : MonoBehaviour
     void Update()
     {
 
+      
       //complete Level
       if (rockFilled >= 40)
       {
@@ -38,9 +39,9 @@ public class Rock : MonoBehaviour
       if(other.CompareTag("DumpTruck"))
       {
         if (! levelFailed)
-         
+         rockFilled++;
         
-        onGround = false;
+        //onGround = false;
       }
       else if (other.CompareTag("Floor"))
       {

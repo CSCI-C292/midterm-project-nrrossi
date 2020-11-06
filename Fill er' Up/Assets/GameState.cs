@@ -12,6 +12,7 @@ public class GameState : MonoBehaviour
     [SerializeField] GameObject _thanksForPlaying;
     [SerializeField] GameObject _helpMenu;
 
+    public bool display = false;
 
     //bool isLevelComplete = false;
     //bool isLevelFailed = false;
@@ -52,9 +53,10 @@ public void InitiateLevelFailed()
     _failedText.SetActive(true);
 }
 
-public void ToggleHelpMenu(bool display)
+public void ToggleHelpMenu()
 {
-        _helpMenu.SetActive(display);
+        _helpMenu.SetActive(!display);
+        display = !display;
 }
 
 }
